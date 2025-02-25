@@ -1,6 +1,5 @@
-import { Client, Guild, Role, GatewayIntentBits, GuildMember, User, type PartialGuildMember } from "discord.js"
+import { Client, Guild, Role, GatewayIntentBits, GuildMember, type PartialGuildMember } from "discord.js"
 import db from "./db"
-import type { DbUsers } from "./types"
 
 class Main {
 
