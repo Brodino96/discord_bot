@@ -6,10 +6,21 @@ To install dependencies:
 bun install
 ```
 
-To run:
-
+To run first time:
 ```bash
-bun run src/main.ts
+docker compose up --build
+```
+All other times:
+```bash
+docker compose up -d
 ```
 
-This project was created using `bun init` in bun v1.2.2. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+The repo uses the .env as a config file  
+structure:
+```js
+DISCORD_TOKEN=paste_your_token_here
+GUILD_ID=paste_your_guildId_here
+ROLE_ID=paste_your_roleId_here
+ROLE_DURATION=time_in_hours
+CHECK_INTERVAL=time_in_hours
+```
