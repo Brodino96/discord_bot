@@ -44,10 +44,6 @@ class Main {
             this.newMember(member)
         })
 
-        this.client.on("guildMemberRemove", (member: GuildMember | PartialGuildMember) => {
-            this.oldMember(member.id)
-        })
-
         this.client.login(process.env.DISCORD_TOKEN).catch(error => {
             console.log("🟥 Failed initialized discord bot: ", error)
         })
@@ -66,12 +62,13 @@ class Main {
 
     private async checkRoles() {
         const rows = await this.db.getAll()
-        if (!rows) {
+        if (rows.length == 0) {
             return
         }
+        console.log(rows)
 
         // @ts-ignore
-        for (const user of rows[0]) {
+        for (const user of rows) {
             const { user_id, role_assigned_at } = user
             const assignedTime = new Date(role_assigned_at).getTime()
             const currentTime = Date.now()
